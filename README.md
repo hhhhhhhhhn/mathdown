@@ -1,2 +1,2 @@
 # mathdown
-Simple markdown-it/AsciiMath ediitor
+Simple markdown-it / AsciiMath ediitor
