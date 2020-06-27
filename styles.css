@@ -29,4 +29,5 @@ body{
 #out {
 	box-sizing: border-box;
 	padding: 5vh;
+	flex-grow: 1;
 }

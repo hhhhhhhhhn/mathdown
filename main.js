@@ -1,6 +1,4 @@
-markdownitMaths = import("./deps/markdown-it-maths/index.min.js")
-
-const md = markdownit().use(markdownitMaths)
+const md = markdownit().use(markdownitMath)
 
 const textarea = document.getElementById("textarea")
 const out = document.getElementById("out")
@@ -16,13 +14,14 @@ function download(file, text) {
   document.body.removeChild(element)
 }
 
-function render(){
+async function render(){
 	out.innerHTML = md.render(textarea.value)
 }
 
-var renderTimeout = setTimeout(()=>{render()}, 1000)
+var renderTimeout = null
 
 textarea.addEventListener("input", ()=>{
 	clearTimeout(renderTimeout)
-	var renderTimeout = setTimeout(()=>{render()}, 1000)
+	var renderTimeout = setTimeout(()=>{render(); MathJax.typesetPromise()}, 1000)
 })
+
