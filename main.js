@@ -3,6 +3,7 @@ const md = markdownit().use(markdownitMath)
 const textarea = document.getElementById("textarea")
 const out = document.getElementById("out")
 const input = document.getElementById("input")
+window.file = "file"
 
 //https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
 function download(file, text) {
@@ -27,28 +28,47 @@ textarea.addEventListener("input", ()=>{
 })
 
 input.addEventListener("change", ()=>{
-			var fr = new FileReader()
-			fr.addEventListener("load", ()=>{
-				textarea.value = fr.result
-				render()
-				MathJax.typesetPromise()
-			})
-			fr.readAsText(input.files[0])
+	var fr = new FileReader()
+	fr.addEventListener("load", ()=>{
+		if(input.value.toLowerCase().includes(".css")){ // If file is a theme
+			loadTheme(fr.result)
+		}
+		else{ // If file is text
+			textarea.value = fr.result
+			render()
+			MathJax.typesetPromise()
+			window.file = input.value.split(/[\\\/]/).slice(-1)[0].split(".")[0]
+		}
+	})
+	fr.readAsText(input.files[0])
+})
+
+input.addEventListener("click", ()=>{
+	input.value = ""
 })
 
 document.addEventListener("keydown", (e)=>{
 	if(!e.ctrlKey) return
 	else if(e.key == "s"){
 		e.preventDefault()
-		download("file.md", textarea.value)
+		download(file + ".md", textarea.value)
 	}
 	else if(e.key == "h"){
 		e.preventDefault()
-		download("file.html", md.render(textarea.value))
+		download(file + ".html", md.render(textarea.value))
 	}
 	else if(e.key == "o"){
 		e.preventDefault()
 		input.click()
+	}
+	else if(e.key == "r"){
+		e.preventDefault()
+		defaultTheme()
+	}
+	else if(e.key == "m"){
+		e.preventDefault()
+		textarea.value = ""
+		render()
 	}
 })
 
