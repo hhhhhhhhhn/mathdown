@@ -40,7 +40,7 @@ body{
 }
 
 @media print {
-  #text {
+  #text, textarea {
     display: none;
   }
 }
