@@ -1,4 +1,4 @@
-var link = Array.from(document.getElementsByTagName("link")).filter(el => el.href.includes("github"))[0]
+const link = Array.from(document.getElementsByTagName("link")).filter(el => el.href.includes("github"))[0]
 
 function loadTheme(theme){
 	document.getElementById("theme").innerHTML = theme

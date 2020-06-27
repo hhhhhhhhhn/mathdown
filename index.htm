@@ -9,6 +9,7 @@
 		<script src="./deps/markdown-it.min.js"></script>
 		<script src="./deps/markdown-it-math.min.js"></script>
 		<script defer src="./main.js"></script>
+		<script defer src="./resize.js"></script>
 		<script defer src="./theme.js"></script>
 		<script defer src="./load.js"></script>
 		<style id="theme"></style>
@@ -18,9 +19,8 @@
 			<div id="text">
 				<textarea id="textarea" class="textarea"></textarea>
 			</div>
-			<div id="out" class="markdown-body">
-				
-			</div>
+			<div id="border" class="border"></div>
+			<div id="out" class="markdown-body"></div>
 		</div>
 		<input type="file" id="input">
 	</body>

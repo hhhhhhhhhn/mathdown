@@ -16,14 +16,23 @@ body{
 #text textarea{
 	box-sizing: border-box;
 	outline: 0;
-	resize: horizontal;
+	resize: none;
 	width: 50vw;
 	height: 100vh;
 	margin: 0;
 	border: 0;
-	border-right: 0.2vw solid #ddd;
 	padding: 5vh;
 	overflow: auto;
+}
+
+#border{
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	background-clip: content-box;
+	height: 100vh;
+	width: 0.2vw;
+	background-color: #ddd;
+	cursor: ew-resize;
 }
 
 #out {
@@ -43,6 +52,9 @@ body{
 @media print {
   #text, textarea {
     display: none;
+  }
+  #border {
+	display: none;
   }
 }
 

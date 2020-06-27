@@ -3,6 +3,7 @@ const md = markdownit().use(markdownitMath)
 const textarea = document.getElementById("textarea")
 const out = document.getElementById("out")
 const input = document.getElementById("input")
+const border = document.getElementById("border")
 window.file = "file"
 
 //https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
