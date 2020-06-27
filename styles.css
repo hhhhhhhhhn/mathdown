@@ -30,4 +30,21 @@ body{
 	box-sizing: border-box;
 	padding: 5vh;
 	flex-grow: 1;
+	width: auto;
+	word-wrap: break-word;
+}
+
+#out p{
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+@media print {
+  #text {
+    display: none;
+  }
+}
+
+#input {
+	display: none;
 }
