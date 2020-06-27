@@ -70,5 +70,9 @@ document.addEventListener("keydown", (e)=>{
 		textarea.value = ""
 		render()
 	}
+	else if(e.key == "g"){
+		e.preventDefault()
+		toggleGHCSS()
+	}
 })
 
