@@ -2,6 +2,7 @@ var grabbing = false
 
 document.addEventListener("mousemove", (e)=>{
 	if(grabbing){
+		e.preventDefault()
 		textarea.style.width = e.clientX * 100 / window.innerWidth + "vw"
 	}
 })
