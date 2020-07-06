@@ -8,17 +8,19 @@ window.file = "file"
 
 //https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
 function download(file, text) {
-  var element = document.createElement("a")
-  element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text))
-  element.setAttribute("download", file)
-  element.style.display = "none"
-  document.body.appendChild(element)
-  element.click()
-  document.body.removeChild(element)
+	var element = document.createElement("a")
+	element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text))
+	element.setAttribute("download", file)
+	element.style.display = "none"
+	document.body.appendChild(element)
+	element.click()
+	document.body.removeChild(element)
 }
 
 async function render(){
+	isScrolled = out.scrollTop >= (out.scrollHeight - out.offsetHeight - 10)
 	out.innerHTML = md.render(textarea.value)
+	if(isScrolled) out.scrollTop = out.scrollHeight
 }
 
 var renderTimeout = null
