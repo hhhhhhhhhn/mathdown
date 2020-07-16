@@ -7,7 +7,7 @@ and about [AsciiMath here](http://asciimath.org/).
 
 ## shortcuts
 Press `Ctrl+S` to download markdown, `Ctrl+H` to download HTML + MathML, and `Ctrl+P` to print or download as PDF.
-Open markdown files with `Ctrl+O`. if the file has `.css` in its name will be loaded as a theme. This can be
+Open markdown files with `Ctrl+O`. if the file has `.css` in its name it will be loaded as a theme. This can be
 reset with `Ctrl+R`. Create a new file with `Ctrl+M`
 
 ## themes
